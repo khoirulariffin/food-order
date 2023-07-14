@@ -4,7 +4,7 @@ import { meals } from "../../../assets";
 
 import classes from "./Header.module.css";
 
-import HeaderCartButton from "../HeaderCartButton/HeaderCartButton";
+import HeaderCartButton from "./CartButton/CartButton";
 
 const Header = () => {
   return (

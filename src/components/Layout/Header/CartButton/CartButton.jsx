@@ -1,8 +1,8 @@
 import React from "react";
-import CartIcon from "../../Cart/CartIcon";
-import classes from "./HeaderCartButton.module.css";
+import CartIcon from "../../../Cart/CartIcon";
+import classes from "./CartButton.module.css";
 
-const HeaderCartButton = () => {
+const CartButton = () => {
   return (
     <React.Fragment>
       <button className={classes.button}>
@@ -16,4 +16,4 @@ const HeaderCartButton = () => {
   );
 };
 
-export default HeaderCartButton;
+export default CartButton;
