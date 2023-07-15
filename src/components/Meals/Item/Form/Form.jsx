@@ -5,9 +5,13 @@ import classes from "./Form.module.css";
 import Input from "../../../UI/Input/Input";
 
 const Form = (props) => {
+  const submitHandler = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <React.Fragment>
-      <form action="#" className={classes.form}>
+      <form onSubmit={submitHandler} className={classes.form}>
         <Input
           label="Amount"
           input={{
