@@ -1,11 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
 import PropTypes from "prop-types";
 
 import classes from "./Item.module.css";
 import Form from "./Form/Form";
+import CartContext from "../../../store/cart-context";
 
 const Item = (props) => {
+  const cartCtx = useContext(CartContext);
   const price = `$${props.price.toFixed(2)}`;
+  const addToCartHandler = (amount) => {
+    cartCtx.addItem({
+      id: props.id,
+      name: props.name,
+      amount: amount,
+      price: props.price,
+    });
+  };
 
   return (
     <React.Fragment>
@@ -16,7 +26,7 @@ const Item = (props) => {
           <div className={classes.price}>{price}</div>
         </div>
         <div>
-          <Form id={props.id} />
+          <Form id={props.id} onAddToCart={addToCartHandler} />
         </div>
       </li>
     </React.Fragment>
