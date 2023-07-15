@@ -1,10 +1,10 @@
 import React from "react";
-// import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 
 import classes from "./Cart.module.css";
 import Modal from "../UI/Modal/Modal";
 
-const Cart = () => {
+const Cart = (props) => {
   const cartItems = (
     <ul className={classes["cart-items"]}>
       {[{ id: "c1", name: "Sushi", amount: 2, price: 12.99 }].map((item) => (
@@ -15,14 +15,19 @@ const Cart = () => {
 
   return (
     <React.Fragment>
-      <Modal>
-        <div>{cartItems}</div>
+      <Modal onCloseCart={props.onCloseCart}>
+        {cartItems}
         <div className={classes.total}>
           <span>Total Amount</span>
           <span>35.99</span>
         </div>
         <div className={classes.actions}>
-          <button className={classes["button--alt"]}>Close</button>
+          <button
+            className={classes["button--alt"]}
+            onClick={props.onCloseCart}
+          >
+            Close
+          </button>
           <button className={classes.button}>Order</button>
         </div>
       </Modal>
@@ -30,6 +35,8 @@ const Cart = () => {
   );
 };
 
-// Cart.propTypes = {};
+Cart.propTypes = {
+  onCloseCart: PropTypes.func.isRequired,
+};
 
 export default Cart;
